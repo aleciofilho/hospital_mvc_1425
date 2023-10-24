@@ -1,7 +1,9 @@
 class Router
-  def initialize(patients_controller, rooms_controller)
+  def initialize(patients_controller, rooms_controller, doctors_controller, appointments_controller)
     @patients_controller = patients_controller
     @rooms_controller = rooms_controller
+    @doctors_controller = doctors_controller
+    @appointments_controller = appointments_controller
   end
 
   def run
@@ -22,6 +24,9 @@ class Router
     puts "3 - Register a patient"
     puts "4 - List all patients"
     puts "5 - Cure patient"
+    puts "6 - Register a doctor"
+    puts "7 - List all doctors"
+    puts "8 - Create a new appointment"
     puts "0 - Exit"
   end
 
@@ -37,6 +42,12 @@ class Router
       @patients_controller.list
     when 5
       @patients_controller.cure
+    when 6
+      @doctors_controller.add
+    when 7
+      @doctors_controller.list
+    when 8
+      @appointments_controller.add
     when 0
       puts "Goodbye!"
       exit

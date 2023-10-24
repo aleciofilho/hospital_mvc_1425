@@ -24,6 +24,14 @@ class PatientRepository
     save_csv
   end
 
+  def find(patient_id)
+    @patients.find { |patient| patient.id == patient_id }
+  end
+
+  def find_by_index(index)
+    @patients[index]
+  end
+
   private
 
   def save_csv
